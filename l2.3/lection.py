@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 from numpy import dstack
 import numpy as np
 from skimage import img_as_float
-img = imread("img.png")
+img = imread("https://stepik.org/media/attachments/lesson/58182/00.png")
 sizey = len(img)//3
 sizex = len(img[0])
 b = img[:sizey,:]
@@ -41,7 +41,7 @@ for i  in range(-15,16):
 
 testb = np.roll(b_trimmed,x,0)
 testb = np.roll(testb,y,1)
-testr = np.roll(r_trimmed,xr,0)
+testr = np.roll(r_trimmed,xr-15,0)
 testr = np.roll(testr,yr,1)
 print(x,y,xr,yr)
 imshow(dstack((testr,g_trimmed,testb)))

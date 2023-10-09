@@ -1,4 +1,5 @@
 from skimage.io import imread, imsave, imshow
+from skimage import data
 from skimage import img_as_float
 from matplotlib import pyplot as plt
 import numpy as np
@@ -18,5 +19,6 @@ img_c = (img1 - mi)*(255/(ma-mi))
 im_o = np.clip(img_c,0,255)
 im_out = im_o.astype('uint8')
 imshow(im_out)
-
+camera =data.camera()
+imshow(camera)
 plt.show()
