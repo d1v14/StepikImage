@@ -10,7 +10,6 @@ def Gauss(x,y,s):
     return ans
 
 img = imread("l4.1/img.png")
-img_f = img_as_float(img)
 s = 0.66
 k=round(3*s*2+1)
 arr = np.zeros((k,k),dtype = "float")
@@ -19,9 +18,11 @@ for i in range(-(k//2),(k//2)+1,1):
         arr[(k//2)+i,(k//2)+j] = Gauss(i,-j,s)
 d = arr.sum()
 
-img_o = sg.convolve2d(img_f,arr,mode = "valid")
+img_o = sg.convolve2d(img,arr,mode = "valid")
 img_o = img_o / d
-np.clip(img_o,0,1)
-img_out = img_as_ubyte(img_o)
+
+img_out = img_o.astype('uint8')
+np.clip(img_out,0,255)
+
 imshow(img_out)
 plt.show()
